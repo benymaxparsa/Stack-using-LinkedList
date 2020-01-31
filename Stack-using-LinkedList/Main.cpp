@@ -9,12 +9,12 @@ int main()
 	s->push(3);
 	s->push(6);
 	s->pop();
-	s->push(3);
+	s->push(9);
 
-	cout << s->Size() << endl;
+	cout << s->Size() << "  " << s->top() << "  " << s->isEmpty() << endl;
 	s->pop();
 	s->pop();
-	cout << s->Size() << endl;
+	cout << s->Size() << "  " << s->isEmpty() << endl;
 	s->pop();
 	cout << s->Size() << endl;
 

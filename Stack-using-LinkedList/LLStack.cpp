@@ -55,17 +55,25 @@ int LLStack::pop()
 
 int LLStack::top()
 {
-	return 0;
+	if (!root)
+		return 0;
+	else
+	{
+		StackNode* p = root;
+		while (p->next)
+		{
+			p = p->next;
+		}
+		return p->data;
+	}
 }
 
 bool LLStack::isEmpty()
 {
-	return false;
-}
-
-bool LLStack::isFull()
-{
-	return false;
+	if (!root && size == 0)
+		return true;
+	else
+		return false;
 }
 
 int LLStack::Size()
