@@ -10,6 +10,7 @@ class LLStack
 private:
 	int size;
 	StackNode* root;
+	StackNode* lastData();
 public:
 	LLStack();
 	~LLStack();

@@ -10,6 +10,16 @@ LLStack::~LLStack()
 {
 }
 
+StackNode* LLStack::lastData()
+{
+	StackNode* p = root;
+	while (p->next)
+	{
+		p = p->next;
+	}
+	return p;
+}
+
 void LLStack::push(int data)
 {
 	StackNode* node = new StackNode(data);
@@ -21,19 +31,26 @@ void LLStack::push(int data)
 	}
 	else
 	{
-		StackNode* p = root;
-		while (p->next)
-		{
-			p = p->next;
-		}
-		p->next = node;
+		lastData()->next = node;
 		return;
 	}
 }
 
 int LLStack::pop()
 {
-	return 0;
+	if (!root)
+		return 0;
+	else
+	{
+		StackNode* p = lastData();
+		int data =p->data;
+		size--;
+		p = NULL;
+		if (size == 0)
+			root = NULL;
+		return data;
+	}
+
 }
 
 int LLStack::top()
@@ -53,5 +70,5 @@ bool LLStack::isFull()
 
 int LLStack::Size()
 {
-	return 0;
+	return size;
 }
